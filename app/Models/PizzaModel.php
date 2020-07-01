@@ -22,6 +22,3 @@ class PizzaModel extends Model
 
 
 }
-
-
-    

@@ -45,12 +45,12 @@ class Dashboard extends BaseController
 		
 	}
 
-	public function deletePizza($id)
-	{
-		$pizzaModel = new PizzaModel();
-		$pizzaModel ->delete($id);
-		return redirect()->to('/index');
-	}
+	// public function deletePizza($id)
+	// {
+	// 	$pizzaModel = new PizzaModel();
+	// 	$pizzaModel ->delete($id);
+	// 	return redirect()->to('/index');
+	// }
 
 
 

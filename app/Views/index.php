@@ -12,6 +12,7 @@
 					<a href="" class="btn btn-warning btn-sm text-white font-weight-bolder" data-toggle="modal" data-target="#createPizza">
 						<i class="material-icons float-left" data-toggle="tooltip" title="Add Pizza!" data-placement="left">add</i>&nbsp;Add
 					</a>
+					
 					<?php endif;?>
 				</div>
 				<hr>
@@ -119,9 +120,3 @@
   </div>
   <!-- =================================END MODEL UPDATE==================================================== -->
 <?= $this->endSection() ?>
-
-
-
-
-
-
