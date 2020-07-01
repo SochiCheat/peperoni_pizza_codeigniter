@@ -20,7 +20,7 @@ class Auth extends BaseController
                 ]
                 
             ];
-            if(!$this->validate($rules)){
+            if(!$this->validate($rules,$errors)){
             
                 $data['validation'] = $this->validator; 
             }else{
@@ -42,6 +42,7 @@ class Auth extends BaseController
 			'id' => $user['id'],
 			'email' => $user['email'],
 			'address' => $user['address'],
+			'role' => $user['role'],
 			'isLoggedIn' => true,
 		];
 
@@ -70,9 +71,10 @@ class Auth extends BaseController
 					'email' =>$this->request->getVar('email'),
 					'password' =>$this->request->getVar('password'),
                     'address' =>$this->request->getVar('address'),
+                    'role' =>$this->request->getVar('role'),
                     
                 ];
-                $user->addUser($newData);
+                $user->createUser($newData);
                 $session = session();
 				$session->setFlashdata('success', 'Successful Registration!!!');
 				return redirect()->to('/');

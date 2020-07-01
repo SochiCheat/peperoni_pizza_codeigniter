@@ -6,9 +6,13 @@
 			<div class="col-2"></div>
 			<div class="col-8">
 				<div class="text-right">
+				<?php if (session()->get('role') == 1):?>
+
+					
 					<a href="" class="btn btn-warning btn-sm text-white font-weight-bolder" data-toggle="modal" data-target="#createPizza">
 						<i class="material-icons float-left" data-toggle="tooltip" title="Add Pizza!" data-placement="left">add</i>&nbsp;Add
 					</a>
+					<?php endif;?>
 				</div>
 				<hr>
 				<table class="table table-borderless table-hover" id="example1">
@@ -18,6 +22,7 @@
 						<th>Price</th>
 						<th></th>
 					</tr>
+					
 					<?php 
 						foreach($pizzas as $pizza):
 					?>
@@ -25,13 +30,17 @@
 						<td><?=$pizza['name']?></td>
 						<td><?=$pizza['ingredient']?></td>
 						<td><?=$pizza['price']?></td>
+						<?php if (session()->get('role') == 1):?>
 						<td>
-							<a href="" data-toggle="modal" data-target="#updatePizza"><i class="material-icons text-info" data-toggle="tooltip" title="Edit Pizza!" data-placement="left" name="id" value="<?= $pizza['id'] ?>">edit</i></a>
-							<a href="" data-toggle="tooltip" title="Delete Pizza!" data-placement="right"><i class="material-icons text-danger">delete</i></a>
+					
+							<a href="" data-toggle="modal" data-target="#updatePizza"><i class="material-icons text-info" data-toggle="tooltip" title="Edit Pizza!" data-placement="left">edit</i></a>
+							<a href="dashboard/deletePizza/<?= $pizza['id'] ?>"  data-toggle="tooltip" title="Delete Pizza!" data-placement="right"><i class="material-icons text-danger">delete</i></a>
 						</td>
+						<?php endif;?>
 					</tr>
 					
 						<?php endforeach;?>
+
 				</table>
 			</div>	
 
@@ -55,7 +64,7 @@
         
         <!-- Modal body -->
         <div class="modal-body text-right">
-			<form  action="pizza/create" method="post">
+			<form  action="dashboard/addPizza" method="post">
 			<div class="form-group">
 					<input type="text" class="form-control" placeholder="Pizza name" name="name">
 				</div>

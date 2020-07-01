@@ -33,15 +33,18 @@ $routes->setAutoRoute(true);
 // $routes->get('/', 'Home::index');
 $routes->add('/', 'Auth::loginUser');
 $routes->add('register', 'Auth::registerUser');
+
 $routes->add('index', 'Dashboard::index');
 
+// $routes->add('create', 'Dashboard::addPizza');
 // $routes->add('/', 'Pizza::viewPizza');
-$routes->group('pizza', function($routes){
-	$routes->add('/', 'Pizza::listPizza');
-	$routes->add('create', 'Pizza::addPizza');
+// $routes->group('pizza', function($routes){
+
+	// $routes->add('/', 'Pizza::listPizza');
+	
 // 	$routes->add('remove/(:num)', 'Pizza::deletePizza/$1');
 // 	$routes->add('update', 'Pizza::updatePizza');
-});
+// });
 
 
 /**
