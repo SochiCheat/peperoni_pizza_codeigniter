@@ -28,6 +28,21 @@ class Dashboard extends BaseController
                 
 			];
 			
+			// if(!$this->validate($rules,$errors)){
+            
+            //     $data['validation'] = $this->validator; 
+            // }else{
+            //     $model = new PizzaModel();
+
+			// 	$user = $model->where('name', $this->request->getVar('name'))->first();
+			// 	$this->sessionUser($user);
+			// 	return redirect()->to('/index');
+			// }
+
+			
+
+			
+			
 			
 
 				$pizzaModel = new PizzaModel();
@@ -45,13 +60,32 @@ class Dashboard extends BaseController
 		
 	}
 
-	// public function deletePizza($id)
-	// {
-	// 	$pizzaModel = new PizzaModel();
-	// 	$pizzaModel ->delete($id);
-	// 	return redirect()->to('/index');
-	// }
+	public function deletePizza($id)
+	{
+		$pizzaModel = new PizzaModel();
+		$pizzaModel ->delete($id);
+		return redirect()->to('/index');
+	}
+		// edit pizza
 
+		public function editPizza($id)
+		{
+			$model = new PizzaModel();
+			$data['edit'] = $model->find($id);
+			return view('index',$data);
+		}
+	
+		// update pizza
+	
+		public function updatePizza()
+		{
+			$model = new PizzaModel();
+			$model->update($_POST['id'],$_POST);
+			return redirect()->to('/index');
+		}
+
+
+	
 
 
 

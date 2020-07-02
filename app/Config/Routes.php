@@ -36,6 +36,8 @@ $routes->add('register', 'Auth::registerUser');
 
 $routes->add('index', 'Dashboard::index');
 
+// $routes->add('update', 'Dashboard::update');
+
 // $routes->add('create', 'Dashboard::addPizza');
 // $routes->add('/', 'Pizza::viewPizza');
 // $routes->group('pizza', function($routes){
